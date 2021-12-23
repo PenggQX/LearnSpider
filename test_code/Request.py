@@ -1,5 +1,6 @@
 import unittest
 from functools import wraps
+import requests
 
 def Test(func):
     @wraps(func)
@@ -19,4 +20,5 @@ class RequestTest(unittest.TestCase):
     @Test
     def test_1(self):
         print("aaaaaaaaaaa")
+        print(requests)
 
