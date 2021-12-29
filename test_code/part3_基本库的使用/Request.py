@@ -1,7 +1,7 @@
 import unittest
 import requests
 import re
-from . import Name
+from LearnSpider.test_code import Name
 
 sBaseUrl = "http://www.baidu.com/"
 sJsonUrl = "http://httpbin.org/"
