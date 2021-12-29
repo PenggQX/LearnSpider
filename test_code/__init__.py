@@ -4,6 +4,7 @@ import http.cookiejar
 import urllib.error
 import urllib.parse
 import urllib.robotparser
+from functools import wraps
 
 
 sBaseUrl = "http://www.baidu.com"
@@ -147,3 +148,20 @@ if __name__ == '__main__':
     # TestParseURL()
     # TestUrlencode()
     TestParserRobots()
+
+
+def Test(func):
+    @wraps(func)
+    def wrapper(*args, **kwargs):
+        print("=========测试 ", func.__name__)
+        return func(*args, **kwargs)
+    return wrapper
+
+def Name(sText = ""):
+    def TestWrap(func):
+        @wraps(func)
+        def wrapper(*args, **kwargs):
+            print("=========测试:", sText, func.__name__)
+            return func(*args, **kwargs)
+        return wrapper
+    return TestWrap
